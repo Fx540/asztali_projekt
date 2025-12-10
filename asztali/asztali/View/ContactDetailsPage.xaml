@@ -2,11 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="asztali.View.ContactDetailsPage"
-             Title="ContactDetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Kapcsolat részletei">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text="Név" />
+            <Entry x:Name="NameEntry" Placeholder="Adja meg a nevet" />
+
+            <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text="Telefonszám" />
+            <Entry
+            x:Name="PhoneEntry"
+            Keyboard="Telephone"
+            Placeholder="Adja meg a telefonszámot" />
+
+            <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text="Email" />
+            <Entry
+            x:Name="EmailEntry"
+            Keyboard="Email"
+            Placeholder="Adja meg az email címet" />
+
+            <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text="Cím" />
+            <Entry x:Name="AddressEntry" Placeholder="Adja meg a címet" />
+
+            <Grid
+            Margin="0,20,0,0"
+            ColumnDefinitions="*,*,*"
+            ColumnSpacing="10">
+                <Button
+                Grid.Column="0"
+                BackgroundColor="Gray"
+                Clicked="OnCancelClicked"
+                Text="Mégse" />
+                <Button
+                x:Name="DeleteButton"
+                Grid.Column="1"
+                BackgroundColor="Red"
+                Clicked="OnDeleteClicked"
+                IsVisible="False"
+                Text="Törlés" />
+                <Button
+                Grid.Column="2"
+                Clicked="OnSaveClicked"
+                Text="Mentés" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
