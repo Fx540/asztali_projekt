@@ -1,15 +1,17 @@
-﻿namespace asztali
+﻿using asztali.ModelView;
+
+namespace asztali
 {
     public partial class App : Application
     {
+        public static DatabaseService Database { get; private set; }
+
         public App()
         {
             InitializeComponent();
-        }
+            Database = new DatabaseService();
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
+            MainPage = new AppShell();
         }
     }
 }
