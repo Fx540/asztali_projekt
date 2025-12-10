@@ -1,0 +1,42 @@
+ProjektFeladat Dokumentáció
+
+1. Az alkalmazás bemutatása
+A "ProjektFeladat" egy mobil platformokra (Android, iOS, Windows, MacCatalyst) fejlesztett névjegyzék kezelő alkalmazás, amely .NET MAUI keretrendszerben készült.
+Az alkalmazás célja, hogy a felhasználók egyszerűen és gyorsan kezelhessék (létrehozás, olvasás, módosítás, törlés) kapcsolataikat.
+A felhasználói felület letisztult, modern és felhasználóbarát, a MAUI alapértelmezett stílusait és színeit használja, amelyek biztosítják a jó olvashatóságot.
+
+2. Adatmodell
+Az alkalmazás egyetlen táblát használ az adatok tárolására: "Contacts".
+A ContactItem modell osztály a következő tulajdonságokkal rendelkezik:
+- Id (int): Egyedi azonosító, elsődleges kulcs, automatikusan növekszik.
+- Name (string): A kapcsolat neve.
+- PhoneNumber (string): Telefonszám.
+- Email (string): Email cím.
+- Address (string): Lakcím.
+
+Az adatbázis kezeléséhez az SQLite technológiát használjuk, amely egy könnyűsúlyú, fájl alapú adatbázis motor, ideális mobilalkalmazásokhoz.
+
+3. Fejlesztési lépések
+- Projekt létrehozása: .NET MAUI App sablon használata.
+- NuGet csomagok telepítése: sqlite-net-pcl, SQLitePCLRaw.bundle_green, CommunityToolkit.Mvvm.
+- Projekt struktúra kialakítása: MVVM (Model-View-ViewModel) minta követése.
+  - Models: Adatmodellek (ContactItem).
+  - Services: Adatbázis műveletek (DatabaseService).
+  - ViewModels: Üzleti logika és állapotkezelés (ContactListViewModel, ContactDetailsViewModel).
+  - Views: Felhasználói felület (ContactListPage, ContactDetailsPage).
+- Adatbázis réteg implementálása: Aszinkron SQLite kapcsolat létrehozása, CRUD műveletek megvalósítása.
+- ViewModelek létrehozása: Adatkötés, parancsok (Commands) definiálása, navigáció kezelése.
+- Felhasználói felület (XAML) elkészítése: Listák megjelenítése CollectionView-val, adatbevitel Entry vezérlőkkel, navigáció Shell segítségével.
+- Funkciók implementálása:
+  - Listázás: Összes kapcsolat lekérdezése és megjelenítése.
+  - Hozzáadás: Új kapcsolat űrlap és mentés.
+  - Módosítás: Meglévő kapcsolat adatainak szerkesztése és mentése megerősítéssel.
+  - Törlés: Kapcsolat törlése megerősítő párbeszédablakkal (Swipe művelet a listában és gomb a részletek oldalon).
+
+4. Továbbfejlesztési lehetőségek
+- Keresés és szűrés: Lehetőség a kapcsolatok közötti keresésre név vagy telefonszám alapján.
+- Csoportosítás: Kapcsolatok kategóriákba rendezése (pl. Család, Munka, Barátok).
+- Kép hozzáadása: Profilkép feltöltése és tárolása a kapcsolatokhoz.
+- Validáció: Részletesebb adatellenőrzés (pl. telefonszám és email formátum).
+- Szinkronizáció: Adatok felhőbe mentése és szinkronizálása több eszköz között.
+- Hívás és Email indítása: Közvetlen hívás vagy email küldés az alkalmazásból.
